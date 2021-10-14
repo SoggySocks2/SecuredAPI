@@ -19,8 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\SecuredAPI.Identity\SecuredAPI.Identity.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SecuredAPI.ApiGateway.Api</name>
+    </assembly>
+    <members>
+        <member name="M:SecuredAPI.ApiGateway.Api.Features.Customers.Endpoints.CustomerController.GetAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get a customer
+            </summary>
+            <param name="id">Unique identifier</param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="M:SecuredAPI.ApiGateway.Api.Features.Identity.Endpoints.AuthenticationController.GetTokenAsync(SecuredAPI.ApiGateway.Api.Features.Identity.Models.AuthenticationModel,System.Threading.CancellationToken)">
+            <summary>
+            Authenticate and generate a new JWT
+            </summary>
+            <returns>JWT</returns>
+        </member>
+        <member name="M:SecuredAPI.ApiGateway.Api.Features.Vehicles.Endpoints.VehicleController.GetAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Get a vehicle
+            </summary>
+            <param name="id">Unique identifier</param>
+            <param name="cancellationToken"></param>
+        </member>
+    </members>
+</doc>

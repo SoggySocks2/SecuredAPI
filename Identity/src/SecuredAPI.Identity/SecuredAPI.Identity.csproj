@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\src\SecuredAPI.Configuration\SecuredAPI.Configuration.csproj" />
+    <ProjectReference Include="..\..\..\Common\src\SecuredAPI.SharedKernel\SecuredAPI.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

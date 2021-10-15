@@ -9,10 +9,10 @@
         public static readonly PermissionKey CustomerDelete = new(4, nameof(CustomerDelete), "Customer Delete", "Customer");
 
         // Vehicle 101-199
-        public static readonly PermissionKey VehicleRead = new(1, nameof(VehicleRead), "Vehicle Read", "Vehicle");
-        public static readonly PermissionKey VehicleWrite = new(2, nameof(VehicleWrite), "Vehicle Write", "Vehicle");
-        public static readonly PermissionKey VehicleUpdate = new(3, nameof(VehicleUpdate), "Vehicle Update", "Vehicle");
-        public static readonly PermissionKey VehicleDelete = new(4, nameof(VehicleDelete), "Vehicle Delete", "Vehicle");
+        public static readonly PermissionKey VehicleRead = new(101, nameof(VehicleRead), "Vehicle Read", "Vehicle");
+        public static readonly PermissionKey VehicleWrite = new(102, nameof(VehicleWrite), "Vehicle Write", "Vehicle");
+        public static readonly PermissionKey VehicleUpdate = new(103, nameof(VehicleUpdate), "Vehicle Update", "Vehicle");
+        public static readonly PermissionKey VehicleDelete = new(104, nameof(VehicleDelete), "Vehicle Delete", "Vehicle");
 
         private PermissionKey(int value, string name, string description, string group)
             : base(name, value)

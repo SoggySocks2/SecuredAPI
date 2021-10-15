@@ -47,7 +47,7 @@ namespace SecuredAPI.ApiGateway.Api
             {
                 var policy = new AuthorizationPolicyBuilder()
                     .RequireAuthenticatedUser()
-                    .RequireScope(OAuthConfiguration.ScopeAccessAsUser)
+                    //.RequireScope(OAuthConfiguration.ScopeAccessAsUser)
                     .Build();
                 o.Filters.Add(new AuthorizeFilter(policy));
             });

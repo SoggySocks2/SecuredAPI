@@ -49,9 +49,10 @@ namespace SecuredAPI.ApiGateway.Api.Configuration.Authorization
         {
             services.AddAuthorization(options =>
             {
-                options.DefaultPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().RequireScope(ScopeAccessAsUser).Build();
+                options.DefaultPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 
-                options.AddPolicy(ScopeAccessAsUser, policy => policy.RequireScope(ScopeAccessAsUser));
+                //options.DefaultPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().RequireScope(ScopeAccessAsUser).Build();
+                //options.AddPolicy(ScopeAccessAsUser, policy => policy.RequireScope(ScopeAccessAsUser));
 
                 foreach (var permissionKey in PermissionKey.List)
                 {

@@ -36,6 +36,7 @@ namespace SecuredAPI.ApiGateway.Api.Features.Identity.Endpoints
             if (authenticationModel == null) return BadRequest($"{nameof(authenticationModel)} is required");
 
             var tokenHandler = new JwtSecurityTokenHandler();
+            //var encryptionKey = configuration.GetValue<string>("JWTEncryptionKey");
             var key = Encoding.ASCII.GetBytes("My JWT Encryption Key");
 
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -44,7 +45,8 @@ namespace SecuredAPI.ApiGateway.Api.Features.Identity.Endpoints
                 {
                             new Claim(ClaimTypes.NameIdentifier, "123"),
                             new Claim(ClaimTypes.Name, $"Peter Jones"),
-                            new Claim(ClaimTypes.Role, "Admin")
+                            //new Claim(ClaimTypes.Role, "Admin"),
+                            new Claim(ClaimTypes.Role, "GlobalAdmin")
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

@@ -29,10 +29,13 @@ namespace SecuredAPI.ApiGateway.Api
         {
             Configuration.Bind(ClientSettings.CONFIG_NAME, ClientSettings.Instance);
 
-            services.AddB2CAuthentication(Configuration);
+            services.AddJwtAuthentication(Configuration);
+            //services.AddB2CAuthentication(Configuration);
             services.AddPolicies();
 
             services.AddIdentityServices(Configuration, ClientSettings.Instance);
+
+            //services.AddJwtAuthentication(Configuration);
 
             services.AddSingleton<IClientSettings>(services => ClientSettings.Instance);
 

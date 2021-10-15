@@ -20,7 +20,7 @@ namespace SecuredAPI.ApiGateway.Api.Configuration.Authorization
             {
                 var rolesClaim = context.User.Claims.FirstOrDefault(
                     //c => c.Type.Equals("extension_Roles", StringComparison.InvariantCultureIgnoreCase));
-                    c => c.Type.Equals("Role", StringComparison.InvariantCultureIgnoreCase));
+                    c => c.Type.Equals("role", StringComparison.InvariantCultureIgnoreCase));
 
                 if (rolesClaim is not null)
                 {

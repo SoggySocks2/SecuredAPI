@@ -14,15 +14,14 @@ namespace SecuredAPI.ApiGateway.Api.Configuration.Authorization
         public static void AddB2CAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    //.AddMicrosoftIdentityWebApi(options =>
-                    //{
-                    //    configuration.Bind("AzureAdB2C", options);
+                //.AddMicrosoftIdentityWebApi(options =>
+                //{
+                //    configuration.Bind("AzureAdB2C", options);
 
-                    //    //options.TokenValidationParameters.NameClaimType = "name";
-                    //},
-                    //options => { configuration.Bind("AzureAdB2C", options); })
+                //    //options.TokenValidationParameters.NameClaimType = "name";
+                //},
+                //options => { configuration.Bind("AzureAdB2C", options); })
                 ;
-
         }
 
         public static void AddPolicies(this IServiceCollection services)

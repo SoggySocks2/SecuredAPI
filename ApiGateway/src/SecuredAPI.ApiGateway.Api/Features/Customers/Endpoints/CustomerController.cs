@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SecuredAPI.SharedKernel.SharedObjects;
 using System.Threading;
 
 namespace SecuredAPI.ApiGateway.Api.Features.Customers.Endpoints
@@ -13,7 +15,7 @@ namespace SecuredAPI.ApiGateway.Api.Features.Customers.Endpoints
         /// <param name="id">Unique identifier</param>
         /// <param name="cancellationToken"></param>
         [HttpGet("{id}")]
-        //[Authorize(Policy = nameof(PermissionKey.CustomerRead))]
+        [Authorize(Policy = nameof(PermissionKey.CustomerRead))]
         public IActionResult GetAsync(string id, CancellationToken cancellationToken = default)
         {
             if (id == string.Empty)

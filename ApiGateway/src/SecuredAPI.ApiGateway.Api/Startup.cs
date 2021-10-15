@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,10 +38,16 @@ namespace SecuredAPI.ApiGateway.Api
 
             services.AddAutoMapper(typeof(Startup).Assembly);
 
-            services.AddSwaggerConfiguration();
+            services.AddControllers(o =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .RequireScope(OAuthConfiguration.ScopeAccessAsUser)
+                    .Build();
+                o.Filters.Add(new AuthorizeFilter(policy));
+            });
 
-            services.AddMvcCore()
-                .AddApiExplorer();
+            services.AddSwaggerConfiguration();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

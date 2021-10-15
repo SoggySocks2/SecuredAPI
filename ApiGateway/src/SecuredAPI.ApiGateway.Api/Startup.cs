@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +10,7 @@ using SecuredAPI.ApiGateway.Api.Features.Identity.Contracts;
 using SecuredAPI.ApiGateway.Api.Features.Identity.Services;
 using SecuredAPI.Identity;
 using SecuredAPI.Identity.Configuration;
+using SecuredAPI.SharedKernel.Contracts;
 
 namespace SecuredAPI.ApiGateway.Api
 {
@@ -33,6 +33,8 @@ namespace SecuredAPI.ApiGateway.Api
             services.AddPolicies();
 
             services.AddIdentityServices(Configuration, ClientSettings.Instance);
+
+            services.AddSingleton<IClientSettings>(services => ClientSettings.Instance);
 
             services.AddApiGatewayServices();
 
@@ -77,7 +79,6 @@ namespace SecuredAPI.ApiGateway.Api
             });
         }
     }
-
 
     public static class ApiGatewayConfiguration
     {

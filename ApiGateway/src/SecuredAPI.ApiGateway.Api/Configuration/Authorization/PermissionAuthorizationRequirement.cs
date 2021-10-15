@@ -19,7 +19,8 @@ namespace SecuredAPI.ApiGateway.Api.Configuration.Authorization
             if (context.User is not null)
             {
                 var rolesClaim = context.User.Claims.FirstOrDefault(
-                    c => c.Type.Equals("extension_Roles", StringComparison.InvariantCultureIgnoreCase));
+                    //c => c.Type.Equals("extension_Roles", StringComparison.InvariantCultureIgnoreCase));
+                    c => c.Type.Equals("Role", StringComparison.InvariantCultureIgnoreCase));
 
                 if (rolesClaim is not null)
                 {

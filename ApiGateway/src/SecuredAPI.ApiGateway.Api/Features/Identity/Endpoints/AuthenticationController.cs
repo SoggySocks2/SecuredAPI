@@ -45,8 +45,8 @@ namespace SecuredAPI.ApiGateway.Api.Features.Identity.Endpoints
                 {
                             new Claim(ClaimTypes.NameIdentifier, "123"),
                             new Claim(ClaimTypes.Name, $"Peter Jones"),
-                            //new Claim(ClaimTypes.Role, "Admin"),
-                            new Claim(ClaimTypes.Role, "GlobalAdmin")
+                            //new Claim(ClaimTypes.Role, "GlobalAdmin"),
+                            new Claim(ClaimTypes.Role, "Admin")
                 }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

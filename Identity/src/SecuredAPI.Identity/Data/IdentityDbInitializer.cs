@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SecuredAPI.Identity.Data.Seeds;
-using System;
 using System.Threading.Tasks;
 
 namespace SecuredAPI.Identity.Data
@@ -46,7 +45,9 @@ namespace SecuredAPI.Identity.Data
                 // Since at this stage while working on the API we'll be adding new permissions continously
                 // then we'll just re-add all permissions automatically to the globaladmin role.
 
-                var globalAdminRole = await _dbContext.Roles.FirstOrDefaultAsync(x => x.NormalizedName == RoleSeed.GlobalAdminRoleNameNormalized);
+                var globalAdminRole = await _dbContext.Roles.Include(x => x.RolePermissions).FirstOrDefaultAsync(x => x.NormalizedName == RoleSeed.GlobalAdminRoleNameNormalized);
+
+                /* NOTE: GlobalAdmin permissions are ALWAYS reset to ensure all permissions. You'll need to manually configure permissions for other roles */
                 var permissions = PermissionSeed.GeneratePermissionsForAdmin();
                 globalAdminRole.ClearAndAddPermissions(permissions);
 
